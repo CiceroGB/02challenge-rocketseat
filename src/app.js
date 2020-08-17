@@ -34,11 +34,13 @@ app.put("/repositories/:id", (request, response) => {
   if (repositoryIndex < 0) {
     return res.status(400).json({ error: 'Error on update' })
   }
+  const { likes } = repositories[repositoryIndex];
   const repository = {
     id,
     title,
     url,
-    techs
+    techs,
+    likes
   }
   repositories[repositoryIndex] = repository;
   return response.status(200).json(repository);
