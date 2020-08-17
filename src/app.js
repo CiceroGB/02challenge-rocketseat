@@ -32,7 +32,7 @@ app.put("/repositories/:id", (request, response) => {
   const { title, url, techs } = request.body;
   const repositoryIndex = repositories.findIndex(item => item.id === id);
   if (repositoryIndex < 0) {
-    return res.status(400).json({ error: 'Error on update' })
+    return response.status(400).json({ error: 'Error on update' })
   }
   const { likes } = repositories[repositoryIndex];
   const repository = {
